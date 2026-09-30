@@ -29,7 +29,7 @@ sudo systemctl restart docker
 Зашёл в веб-интерфейс по адресу http://192.168.0.107:15672,
 логин guest / пароль guest.
 
-https://screenshots/01-webui.png
+![01-webui.png](screenshots/01-webui.png)
 
 Задание 2. Отправка и получение сообщений
 Поставил Python 3 и библиотеку Pika в виртуальное окружение:
@@ -82,11 +82,11 @@ channel.start_consuming()
 Запустил producer — сообщение ушло в очередь. Проверил в веб-интерфейсе —
 очередь hello появилась с Ready: 1.
 
-https://screenshots/02-hello-queue.png
+![02-hello-queue.png](screenshots/02-hello-queue.png)
 
 Потом запустил consumer — он получил сообщение.
 
-https://screenshots/03-consumer.png
+![03-consumer.png](screenshots/03-consumer.png)
 
 Задание 3. HA-кластер
 Создал вторую виртуальную машину через Vagrant (rmq02), объединил её
@@ -133,9 +133,9 @@ docker exec rabbitmq rabbitmqctl stop_app
 docker exec rabbitmq rabbitmqctl reset
 docker exec rabbitmq rabbitmqctl join_cluster rabbit@rmq01
 docker exec rabbitmq rabbitmqctl start_app
-https://screenshots/04-cluster-status-rmq02.png
+![04-cluster-status-rmq02.png](screenshots/04-cluster-status-rmq02.png)
 
-https://screenshots/05-cluster-status-rmq01.png
+![05-cluster-status-rmq01.png](screenshots/05-cluster-status-rmq01.png)
 
 Политика ha-all
 В веб-интерфейсе создал политику:
@@ -146,25 +146,25 @@ Pattern	.*
 Apply to	Exchanges and queues
 Priority	1
 Definition	ha-mode: all, ha-sync-mode: automatic
-https://screenshots/06-policies-ha-all.png
+![06-policies-ha-all.png](screenshots/06-policies-ha-all.png)
 
 Проверка репликации
 Отправил сообщение и проверил очередь на обеих нодах:
 
-https://screenshots/07-rabbitmqadmin-rmq01.png
+![07-rabbitmqadmin-rmq01.png](screenshots/07-rabbitmqadmin-rmq01.png)
 
-https://screenshots/08-rabbitmqadmin-rmq02.png
+![08-rabbitmqadmin-rmq02.png](screenshots/08-rabbitmqadmin-rmq02.png)
 
 Очередь hello в веб-интерфейсе — тип classic, feature D ha-all,
 нода rabbit@rmq01 +1:
 
-https://screenshots/09-queue-ha-all.png
+![09-queue-ha-all.png](screenshots/09-queue-ha-all.png)
 
 Проверка отказоустойчивости
 Остановил rmq01, изменил в consumer.py host на 192.168.0.11
 (rmq02) и запустил его. Consumer получил сообщение со второй ноды:
 
-https://screenshots/10-consumer-failover.png
+![10-consumer-failover.png](screenshots/10-consumer-failover.png)
 
 После теста вернул rmq01 обратно: docker start rabbitmq.
 
