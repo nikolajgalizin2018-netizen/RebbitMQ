@@ -150,7 +150,7 @@ docker exec rabbitmq rabbitmqctl start_app
 
 ![cluster_status rmq02](screenshots/04-cluster-status-rmq02.png)
 
-![cluster_status rmq01](screenshots/05-cluster-status-rmq01.png)
+![Политика ha-all](screenshots/06-policies-ha-all.png)
 
 ### Политика ha-all
 
@@ -164,7 +164,7 @@ docker exec rabbitmq rabbitmqctl start_app
 | Priority | `1` |
 | Definition | `ha-mode: all`, `ha-sync-mode: automatic` |
 
-![Политика ha-all](screenshots/06-policies-ha-all.png)
+![cluster_status rmq01](screenshots/05-cluster-status-rmq01.png)
 
 ### Проверка репликации
 
