@@ -163,14 +163,14 @@ docker exec rabbitmq rabbitmqctl start_app
 | Priority | `1` |
 | Definition | `ha-mode: all`, `ha-sync-mode: automatic` |
 
-![Политика ha-all](screenshots/06-policies-ha-all.png)
+![rabbitmqadmin rmq01](screenshots/07-rabbitmqadmin-rmq01.png)
 
 
 ### Проверка репликации
 
 Отправил сообщение и проверил очередь на обеих нодах:
 
-![rabbitmqadmin rmq01](screenshots/07-rabbitmqadmin-rmq01.png)
+![Политика ha-all](screenshots/06-policies-ha-all.png)
 
 ![rabbitmqadmin rmq02](screenshots/08-rabbitmqadmin-rmq02.png)
 
